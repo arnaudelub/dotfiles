@@ -41,7 +41,7 @@ if ${use_color} ; then
 	if [[ ${EUID} == 0 ]] ; then
 		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
-	    PS1='\n\e[38;5;32m$(shortwd)\e[38;5;48m $(git_branch)\e[0m$ '
+	    PS1='\[\033[38;5;82m\][\u]\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
     fi
 
 	alias ls='ls --color=auto'
