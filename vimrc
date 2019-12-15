@@ -12,6 +12,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'chiel92/vim-autoformat'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
