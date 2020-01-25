@@ -1,6 +1,3 @@
-syntax enable
-set background=dark
-colorscheme solarized
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
@@ -29,6 +26,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+syntax enable
+set background=dark
+colorscheme solarized
 "plug 'dense-analysis/ale'
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
