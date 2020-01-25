@@ -1,8 +1,12 @@
+syntax enable
+set background=dark
+colorscheme solarized
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 let mapleader = "\<Space>"
 " Declare the list of plugins.
+Plug 'altercation/vim-colors-solarized'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
 Plug 'dart-lang/dart-vim-plugin'
