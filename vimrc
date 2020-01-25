@@ -23,12 +23,17 @@ Plug 'neoclide/coc.nvim'
 Plug 'chiel92/vim-autoformat'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-commentary'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 syntax enable
 set background=dark
-colorscheme solarized
+"packadd! dracula
+"colorscheme: dracula, molokai,  solarized, gruvbox...
+colorscheme molokai
 "plug 'dense-analysis/ale'
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
