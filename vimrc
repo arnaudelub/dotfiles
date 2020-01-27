@@ -1,5 +1,5 @@
 "#plugins will be downloaded under the specified directory.
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_completion_tsserver_autoimport = 1
 call plug#begin('~/.vim/plugged')
 
@@ -83,7 +83,7 @@ autocmd quickfixcmdpost    l* nested lwindow
 "autocmd filetype typescript syn clear foldbraces
 
 " polyglote config:
-let g:polyglot_disabled = ['typescript']
+let g:polyglot_disabled = ['typescript', 'dart']
 
 " coc vim config:
 " if hidden is not set, textedit might fail.
