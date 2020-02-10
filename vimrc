@@ -27,6 +27,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
+Plug 'gcmt/taboo.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 syntax enable
@@ -120,7 +121,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
+nmap <leader>fc :CocList --input=flutter commands<CR>
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
