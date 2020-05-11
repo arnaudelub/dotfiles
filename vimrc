@@ -19,7 +19,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chiel92/vim-autoformat'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
