@@ -38,6 +38,8 @@ colors() {
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 
+# ALIAS
+alias ide="nvim"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -60,3 +62,7 @@ function shortwd() {
 git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
+GIT_PS1_SHOWDIRTYSTATE=true
+
+export GHUSER="arnaudelub"
+export GHPWD="BaiKamDu07"
