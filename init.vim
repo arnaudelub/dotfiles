@@ -5,12 +5,17 @@ call plug#begin('~/.vim/plugged')
 let mapleader = "\<Space>"
 " Declare the list of plugins.
 "Plug 'preservim/nerdtree'
+Plug 'marko-cerovac/material.nvim'
+Plug 'alvan/vim-closetag'
+Plug 'mhartington/oceanic-next'
+Plug 'puremourning/vimspector'
 Plug 'kiteco/vim-plugin'
 Plug 'akinsho/dependency-assist.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'nvie/vim-flake8'
 Plug 'hankchiutw/flutter-reload.vim'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'junegunn/vim-emoji'
@@ -52,18 +57,75 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-fugitive'
+Plug 'sodapopcan/vim-twiggy'
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'geekjuice/vim-mocha'
+Plug 'vim-test/vim-test'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'eliba2/vim-node-inspect'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'preservim/vimux'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'sbdchd/neoformat'
+
+call plug#end()
+
+
+" Python
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" disable autocompletion, because we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
+
+" DEBUGGING
+
 "Plug 'natebosch/vim-lsc'
 "Plug 'natebosch/vim-lsc-dart'
 " List ends here. Plugins become visible to Vim after this call.
 "
+
+" Vimux
+map <Leader>tp :VimuxPromptCommand<CR>
+map <Leader>tl :VimuxRunLastCommand<CR>
+map <Leader>ti :VimuxInspectRunner<CR>
+
+" devicons config
+"
+set guifont=Ubuntu_Nerd_Font:h26
+" Activate when using python with poetry
+let g:python3_host_prog = $HOME.'/.cache/pypoetry/virtualenvs/brideapi-S39akoaM-py3.10/bin/python3.10'
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 1
+let g:webdevicons_enable_startify = 1
+
+" Enable copying from vim to the system-clipboard
+set clipboard=unnamedplus
+set encoding=UTF-8
+set termguicolors
 let g:lsc_auto_map = v:true
 let g:jedi#completions_enabled = 0
-call plug#end()
 syntax enable
 set background=dark
-"packadd! dracula
+" packadd! dracula
 "colorscheme: dracula, molokai,  solarized, gruvbox...
-colorscheme molokai
+colorscheme material
+let g:material_style = "darker"
+nnoremap <leader>mm :lua require('material.functions').toggle_style()<CR>
+"colorscheme OceanicNext
 "plug 'dense-analysis/ale'
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -75,9 +137,9 @@ let g:ale_fixers = {
 let g:ale_linters = {
             \   'dart': [ 'language_server'],
             \   'java': ['checkstyle'],
-            \   'python': ['pyls']
+            \   'python': ['pyls, flake8']
             \}
-
+let g:semshi#filetypes = ['python']
 let g:ale_fix_on_save = 1
 
 let g:dart_format_on_save = 1
@@ -123,11 +185,35 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '>'
+
+" lightline
+let g:lightline = {
+  \ 'active': {
+  \   'left': [
+  \     [ 'mode', 'paste' ],
+  \     [ 'ctrlpmark', 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
+  \   ],
+  \   'right':[
+  \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+  \     [ 'blame' ]
+  \   ],
+  \ },
+  \ 'component_function': {
+  \   'blame': 'LightlineGitBlame',
+  \ }
+\ }
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
+endfunction
+
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 let g:tablineclosebutton=1
-nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>vv :sp $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>vt :sp ~/.tmux.conf<cr>
 nmap <leader>vn :sp ~/.config/nvim/init.vim<cr>
@@ -165,10 +251,14 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -253,7 +343,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "set statusline^=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2  " always display the status line
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+" set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -287,8 +377,11 @@ map - <C-w>-
 map < <C-w><
 map > <C-w>>
 
-
-" NERDTree
+" Vimagit
+map <C-m> :Magit<CR>
+"Twiggy
+map <Leader>tw :Twiggy<CR>
+"NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -311,3 +404,72 @@ nnoremap <leader>fe :FlutterEmulators<cr>
 
 " ALE
 nnoremap <leader>af :ALEFindReferences<cr>
+
+" Navigating between pane is normaly CTR+W, W [hjkl]
+" SImplify with rebinding with ctrl [hjkl]
+" Use ctrl-[hjkl] to select the active split!
+nnoremap <silent> <c-k> :TmuxNavigateDown<CR>
+nnoremap <silent> <c-j> :TmuxNavigateUp<CR>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
+
+" Mocha config
+" let g:mocha_js_command = "!mocha --not-timeouts --colors --require ts-node/register {spec}"
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
+
+" vim test
+function! MochaNearestStrategy(cmd)
+  let testName = matchlist(a:cmd, '\v -t ''(.*)''')
+  call vimspector#LaunchWithSettings( #{ configuration: 'mochaNearest', selectedText: testName } )
+endfunction
+function! MochaStrategy(cmd)
+  " let testName = matchlist(a:cmd, '\v -t ''(.*)''')[1]
+  call vimspector#LaunchWithSettings( #{ configuration: 'mocha' } )
+endfunction
+let g:test#custom_strategies = {'mocha': function('MochaStrategy'), 'mochaNearest': function('MochaNearestStrategy')}
+let test#strategy = "mocha"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>St :TestNearest -strategy=mochaNearest<CR>
+nmap <silent> <leader>ST :TestFile<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>aa :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+"Node inspect
+nnoremap <Leader>dh :NodeInspectToggleBreakpoint<cr>
+nnoremap <Leader>dH :NodeInspectRemoveAllBreakpoints<cr>
+nnoremap <Leader>dr :NodeInspectRun<cr>
+nnoremap <Leader>ds :NodeInspectStart "connect"<cr>
+nnoremap <Leader>dS :NodeInspectStop<cr>
+nnoremap <Leader>dc :NodeInspectConnect("127.0.0.1:9229")<cr>
+
+" telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <leader>vl :call vimspector#Launch()<CR>
+nmap <leader>go :call vimspector#Continue()<CR>
+nmap <leader>vr :VimspectorReset<CR>
+nmap <leader>ve :VimspectorEval
+nmap <leader>vw :VimspectorWatch
+nmap <leader>vo :VimspectorShowOutput
+nmap <leader>vi <Plug>VimspectorBalloonEval
+xmap <leader>vi <Plug>VimspectorBalloonEval
+nmap <Leader>vR <Plug>VimspectorRestart
+nmap <Leader>vp <Plug>VimspectorPause
+nmap <Leader>vO <Plug>VimspectorStepOut
+nmap <Leader>vI <Plug>VimspectorStepInto
+nmap <Leader>vso  <Plug>VimspectorStepOver
+nnoremap <Leader>vb :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Leader>vB :call vimspector#ClearBreakpoints()<CR>
+let g:vimspector_install_gadgets = [ 'vscode-node-debug2' ]
+" Integration with telescope.nvim
+nmap <leader>vc :lua require('telescope').extensions.vimspector.configurations()<CR>
