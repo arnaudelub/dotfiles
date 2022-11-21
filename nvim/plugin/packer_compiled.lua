@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/idelub/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/idelub/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/thePrimeagen/harpoon"
+  },
   ["lsp_extensions.nvim"] = {
     loaded = true,
     path = "/home/idelub/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
@@ -213,6 +218,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/idelub/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/home/idelub/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/thePrimeagen/vim-be-good"
   }
 }
 

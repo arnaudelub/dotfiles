@@ -13,6 +13,8 @@ return require("packer").startup(function(use)
         'nvim-lualine/lualine.nvim',
     })
 
+    use("thePrimeagen/harpoon")
+    use("thePrimeagen/vim-be-good")
     
     -- All the things
     use("neovim/nvim-lspconfig")
