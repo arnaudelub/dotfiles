@@ -1,1 +1,0 @@
-/home/idelub/.config/nvim/lua/arnaudev/keymap.lua

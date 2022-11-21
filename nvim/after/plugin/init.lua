@@ -1,1 +1,0 @@
-/home/idelub/.config/nvim/after/plugin/init.lua
