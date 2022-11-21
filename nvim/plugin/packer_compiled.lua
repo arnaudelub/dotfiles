@@ -1,0 +1,1 @@
+/home/idelub/.config/nvim/plugin/packer_compiled.lua

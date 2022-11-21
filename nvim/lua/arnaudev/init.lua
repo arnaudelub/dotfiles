@@ -1,0 +1,1 @@
+/home/idelub/.config/nvim/lua/arnaudev/init.lua
