@@ -30,6 +30,10 @@ return require("packer").startup(function(use)
     use("williamboman/nvim-lsp-installer")
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use("ThePrimeagen/git-worktree.nvim")
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 
     -- Colorscheme section
     use("gruvbox-community/gruvbox")
