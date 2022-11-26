@@ -77,6 +77,7 @@ cmp.setup {
       end,
   },
   sources = {
+      { name = "nvim_lsp" },
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
@@ -93,3 +94,9 @@ cmp.setup {
       native_menu = false,
   },
 }
+-- Set up lspconfig.
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  require('lspconfig')['sumneko_lua'].setup {
+    capabilities = capabilities
+  }

@@ -53,3 +53,21 @@ require('lspconfig')['dartls'].setup{
     flags = lsp_flags,
     -- Server-specific settings...
 }
+
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+    if server.name == "sumneko_lua" then
+        opts = {
+            settings = {
+                Lua = {
+                    diagnostic = {
+                        globals = {'vim', 'use'}
+                    }
+                }
+            }
+        }
+    end
+    server:setup(opts)
+end)
+

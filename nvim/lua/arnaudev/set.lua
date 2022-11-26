@@ -42,3 +42,6 @@ vim.opt.shortmess:append("c")
 
 vim.g.mapleader = " "
 
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
