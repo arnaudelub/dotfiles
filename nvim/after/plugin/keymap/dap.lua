@@ -1,0 +1,12 @@
+local nnoremap = require('arnaudev.keymap').nnoremap
+nnoremap("<leader>dc", ":lua require'dap'.continue()<CR>")
+nnoremap("<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
+nnoremap("<leader>dso", ":lua require'dap'.step_over()<CR>")
+nnoremap("<leader>dsi", ":lua require'dap'.step_into()<CR>")
+nnoremap("<leader>B", ":lua require'dap'.set_breakpoint()<CR>")
+nnoremap("<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>")
+nnoremap("<leader>ds", ":lua require'dap'.terminate()<CR>")
+nnoremap("<leader>dr", ":lua require'dap'.repl.toggle()<CR>")
+nnoremap("<leader>duc", ":lua require'dapui'.close()<CR>")
+nnoremap("<leader>duo", ":lua require'dapui'.open()<CR>")
+nnoremap("<leader>dus", ":lua require'dapui'.setup()<CR>")
