@@ -39,11 +39,14 @@ nnoremap("<leader>f", function()
     vim.lsp.buf.format()
 end)
 
-nnoremap("<C-K>", "<cmd>cnext<CR>zz")
-nnoremap("<C-J>", "<cmd>cprev<CR>zz")
+nnoremap("˚", "<cmd>cnext<CR>zz") -- ALT - k
+nnoremap("∆", "<cmd>cprev<CR>zz") -- ALT - j
 nnoremap("<leader>k", "<cmd>lnext<CR>zz")
 nnoremap("<leader>j", "<cmd>lprev<CR>zz")
 
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 nnoremap("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+
+-- source nvim
+nnoremap("<leader>so", ":source ~/.config/nvim/init.lua<CR>")

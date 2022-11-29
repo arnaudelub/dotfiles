@@ -47,7 +47,47 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             -- trace = true, -- include debugger info
             runtimeExecutable = "node",
             runtimeArgs = {
-                "./node_modules/mocha/bin/mocha.js",
+                "/usr/local/bin/mocha",
+            },
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+        },
+        {
+            type = "pwa-node",
+            request = "launch",
+            name = "Debug Mocha test current file",
+            -- trace = true, -- include debugger info
+            runtimeExecutable = "node",
+            runtimeArgs = {
+                "/usr/local/bin/mocha",
+                "--no-timeouts",
+                "--colors",
+                "--require",
+                "ts-node/register",
+                "${file}"
+            },
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+        },
+        {
+            type = "pwa-node",
+            request = "launch",
+            name = "Debug Mocha test selected text",
+            -- trace = true, -- include debugger info
+            runtimeExecutable = "node",
+            runtimeArgs = {
+                "/usr/local/bin/mocha",
+                "--no-timeouts",
+                "--colors",
+                "--require",
+                "ts-node/register",
+                "${file}",
+                "-t",
+                "${TestName}"
             },
             rootPath = "${workspaceFolder}",
             cwd = "${workspaceFolder}",

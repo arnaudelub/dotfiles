@@ -408,10 +408,10 @@ nnoremap <leader>af :ALEFindReferences<cr>
 " Navigating between pane is normaly CTR+W, W [hjkl]
 " SImplify with rebinding with ctrl [hjkl]
 " Use ctrl-[hjkl] to select the active split!
-nnoremap <silent> <c-k> :TmuxNavigateDown<CR>
-nnoremap <silent> <c-j> :TmuxNavigateUp<CR>
-nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
-nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
+nnoremap <silent> <C-k> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-j> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " Mocha config
 " let g:mocha_js_command = "!mocha --not-timeouts --colors --require ts-node/register {spec}"

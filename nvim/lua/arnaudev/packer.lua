@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
 
     -- All the things
     use("neovim/nvim-lspconfig")
+    use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" }
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/nvim-cmp")
@@ -149,4 +150,5 @@ return require("packer").startup(function(use)
         run = "npm install --legacy-peer-deps && npm run compile" 
     }    
     use 'David-Kunz/jester'
+    use 'christoomey/vim-tmux-navigator'
 end)
