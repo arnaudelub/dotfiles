@@ -66,6 +66,11 @@ return require("packer").startup(function(use)
     requires = { { 'ldelossa/litee.nvim' } }
     }
 
+    -- comment.nvim
+    use {'numtostr/comment.nvim', config = function()
+        require('Comment').setup()
+    end}
+
     --[[
     --
     -- Lazy loading:

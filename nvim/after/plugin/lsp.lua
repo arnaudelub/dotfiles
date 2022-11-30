@@ -35,7 +35,8 @@ require("lspconfig").tsserver.setup(config())
 require("lspconfig").bashls.setup(config())
 require("lspconfig").dartls.setup(config())
 require("lspconfig").jedi_language_server.setup(config())
-
+require("lspconfig").yamlls.setup(config())
+require("lspconfig").dockerls.setup(config())
 -- who even uses this?
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
