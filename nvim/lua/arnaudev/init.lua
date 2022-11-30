@@ -4,4 +4,4 @@ require("arnaudev.neogit")
 require("arnaudev.telescope")
 require("arnaudev.dap")
 require("arnaudev.mason")
-
+require("arnaudev.ghcli")

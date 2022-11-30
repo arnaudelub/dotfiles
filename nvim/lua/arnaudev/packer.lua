@@ -60,6 +60,11 @@ return require("packer").startup(function(use)
     use("nvim-treesitter/playground")
     use("romgrk/nvim-treesitter-context")
 
+    -- GH CLI
+    use {
+    'ldelossa/gh.nvim',
+    requires = { { 'ldelossa/litee.nvim' } }
+    }
 
     --[[
     --
