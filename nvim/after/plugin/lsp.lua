@@ -32,7 +32,8 @@ end
 
 
 require("lspconfig").tsserver.setup(config())
-
+require("lspconfig").bashls.setup(config())
+require("lspconfig").dartls.setup(config())
 require("lspconfig").jedi_language_server.setup(config())
 
 -- who even uses this?
