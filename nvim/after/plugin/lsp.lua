@@ -6,6 +6,8 @@ local function config(_config)
 		on_attach = function()
             local opts = { buffer = true };
 			nnoremap("gd", function() vim.lsp.buf.definition() end, opts)
+			nnoremap("gT", function() vim.lsp.buf.type_definition() end, opts)
+			nnoremap("gi", function() vim.lsp.buf.implementation() end, opts)
 			nnoremap("K", function() vim.lsp.buf.hover() end, opts)
 			nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 			nnoremap("<leader>vd", function() vim.diagnostic.open_float() end, opts)
