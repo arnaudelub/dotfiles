@@ -32,6 +32,7 @@ return require("packer").startup(function(use)
     use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" }
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-path")
     use("hrsh7th/nvim-cmp")
     use("onsails/lspkind-nvim")
     use("nvim-lua/lsp_extensions.nvim")

@@ -1,8 +1,10 @@
 local Remap = require("arnaudev.keymap")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 local function config(_config)
 	return vim.tbl_deep_extend("force", {
+        capabilities = capabilities,
 		on_attach = function()
             local opts = { buffer = true };
 			nnoremap("gd", function() vim.lsp.buf.definition() end, opts)
@@ -11,8 +13,9 @@ local function config(_config)
 			nnoremap("K", function() vim.lsp.buf.hover() end, opts)
 			nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 			nnoremap("<leader>vd", function() vim.diagnostic.open_float() end, opts)
-			nnoremap("[d", function() vim.diagnostic.goto_next() end, opts)
-			nnoremap("]d", function() vim.diagnostic.goto_prev() end, opts)
+			nnoremap("<leader>dj", function() vim.diagnostic.goto_next() end, opts)
+			nnoremap("<leader>dk", function() vim.diagnostic.goto_prev() end, opts)
+			nnoremap("<leader>dl", "<cmd>Telescope diagnostics<CR>", opts)
 			nnoremap("<leader>vca", function() vim.lsp.buf.code_action() end, opts)
 			nnoremap("<leader>vco", function() vim.lsp.buf.code_action({
                 filter = function(code_action)

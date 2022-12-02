@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/adelubac/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/adelubac/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
   cmp_luasnip = {
     loaded = true,
     path = "/Users/adelubac/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -192,7 +197,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-dap"] = {
-    after = { "nvim-dap-virtual-text", "nvim-dap-python", "one-small-step-for-vimkind", "nvim-dap-go", "telescope-dap.nvim", "nvim-dap-ui" },
+    after = { "nvim-dap-virtual-text", "one-small-step-for-vimkind", "nvim-dap-ui", "telescope-dap.nvim", "nvim-dap-go", "nvim-dap-python" },
     config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17arnaudev.dap\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -386,10 +391,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: comment.nvim
-time([[Config for comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "comment.nvim")
-time([[Config for comment.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
@@ -398,6 +399,10 @@ time([[Config for which-key.nvim]], false)
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: comment.nvim
+time([[Config for comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "comment.nvim")
+time([[Config for comment.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
