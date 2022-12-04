@@ -50,3 +50,8 @@ nnoremap("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- source nvim
 nnoremap("<leader>so", ":source ~/.config/nvim/init.lua<CR>")
+
+nnoremap("+", "<C-w>+")
+nnoremap("<", "<C-w><")
+nnoremap(">", "<C-w>>")
+nnoremap("-", "<C-w>-")
