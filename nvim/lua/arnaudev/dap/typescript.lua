@@ -45,9 +45,10 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             request = "launch",
             name = "Debug Mocha Tests",
             -- trace = true, -- include debugger info
-            runtimeExecutable = "node",
+            runtimeExecutable = "npm",
             runtimeArgs = {
-                "/usr/local/bin/mocha",
+                "run-script",
+                "test"
             },
             rootPath = "${workspaceFolder}",
             cwd = "${workspaceFolder}",

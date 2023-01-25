@@ -40,7 +40,6 @@ return require("packer").startup(function(use)
     use("simrat39/symbols-outline.nvim")
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
-    use("williamboman/nvim-lsp-installer")
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use("ThePrimeagen/git-worktree.nvim")
     use {
