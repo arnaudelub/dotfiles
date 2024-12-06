@@ -42,7 +42,6 @@ require("lspconfig").dartls.setup(config())
 require("lspconfig").jedi_language_server.setup(config())
 require("lspconfig").yamlls.setup(config())
 require("lspconfig").dockerls.setup(config())
--- who even uses this?
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
     settings = {
@@ -54,7 +53,7 @@ require("lspconfig").rust_analyzer.setup(config({
     }
 }))
 
-require("lspconfig").sumneko_lua.setup(config({
+require("lspconfig").lua_ls.setup(config({
 	settings = {
 		Lua = {
 			runtime = {

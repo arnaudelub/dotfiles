@@ -36,8 +36,8 @@ set number
 set relativenumber
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set mouse=a
 let g:dart_format_on_save = 1

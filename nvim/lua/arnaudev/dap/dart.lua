@@ -10,13 +10,55 @@ local dap = require("dap")
     {
       type = "dart",
       request = "launch",
-      name = "Launch Dart Program",
+      name = "Launch Development Latest",
       -- The nvim-dap plugin populates this variable with the filename of the current buffer
-      program = "${file}",
+      program = "lib/main_development.dart",
       -- The nvim-dap plugin populates this variable with the editor's current working directory
       cwd = "${workspaceFolder}",
-      args = {"--help"}, -- Note for Dart apps this is args, for Flutter apps toolArgs
+      args =  { "--flavor", "development", "--target", "lib/main_development.dart",
+        "--dart-define=API=/api/v1",
+        "--dart-define=ENVIRONMENT=test",
+        "--dart-define=SERVICE_NAME=concrete-mobile-app",
+        "--dart-define=CLIENT_ID=concrete-client",
+        "--dart-define=REDIRECT_URL=com.nexplore.bcqd:/oauthorize",
+        "--dart-define=SCOPES=email_profile",
+        "--dart-define=NAMESPACE=latest"}, -- Note for Dart apps this is args, for Flutter apps toolArgs
     },
+    {
+      type = "dart",
+      request = "launch",
+      name = "Launch Development custom",
+      -- The nvim-dap plugin populates this variable with the filename of the current buffer
+      program = "lib/main_development.dart",
+      -- The nvim-dap plugin populates this variable with the editor's current working directory
+      cwd = "${workspaceFolder}",
+      args =  { "--flavor", "development", "--target", "lib/main_development.dart",
+        "--dart-define=API=/api/v1",
+        "--dart-define=ENVIRONMENT=test",
+        "--dart-define=SERVICE_NAME=concrete-mobile-app",
+        "--dart-define=CLIENT_ID=concrete-client",
+        "--dart-define=REDIRECT_URL=com.nexplore.bcqd:/oauthorize",
+        "--dart-define=SCOPES=email_profile",
+        "--dart-define=NAMESPACE=arnaud"}, -- Note for Dart apps this is args, for Flutter apps toolArgs
+    },
+{
+      type = "dart",
+      request = "launch",
+      name = "Launch Development QA",
+      -- The nvim-dap plugin populates this variable with the filename of the current buffer
+      program = "lib/main_development.dart",
+      -- The nvim-dap plugin populates this variable with the editor's current working directory
+      cwd = "${workspaceFolder}",
+      args =  { "--flavor", "development", "--target", "lib/main_development.dart",
+        "--dart-define=API=/api/v1",
+        "--dart-define=ENVIRONMENT=test",
+        "--dart-define=SERVICE_NAME=concrete-mobile-app",
+        "--dart-define=CLIENT_ID=concrete-client",
+        "--dart-define=REDIRECT_URL=com.nexplore.bcqd:/oauthorize",
+        "--dart-define=SCOPES=email_profile",
+        "--dart-define=NAMESPACE=qa"}, -- Note for Dart apps this is args, for Flutter apps toolArgs
+    },
+
     {
       type = "dart",
       request = "launch",
