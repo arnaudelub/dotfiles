@@ -25,6 +25,40 @@ return {
         debugger = {
           enabled = true,
         },
+        lsp = {
+          on_attach = function(client, bufnr)
+            -- Print the root directory being used
+            print('Dart LSP root dir:', client.config.root_dir)
+          end,
+          root_dir = function()
+            -- Explicitly set root finding behavior
+            return vim.fn.getcwd()
+            -- Alternative: use the directory containing pubspec.yaml
+            -- return require('lspconfig.util').root_pattern('pubspec.yaml')(vim.fn.expand('%:p'))
+          end,
+          settings = {
+            dart = {
+              -- Previous settings remain the same
+              completeFunctionCalls = true,
+              enableSnippets = true,
+              updateImportsOnRename = true,
+              suggestFromUnimportedLibraries = true,
+              enableCompletionCommitCharacters = true,
+              -- Add these debugging settings
+              analysisLogFile = '/tmp/dart-code.log',
+              enableSdkFormatter = true,
+              -- Force checking for SDK location
+              sdkPath = vim.fn.expand '/opt/dart-sdk-dev',
+              -- Enable verbose logging
+              developerMode = true,
+            },
+          },
+        },
+        -- Ensure proper project detection
+        project = {
+          -- Explicitly set project detection
+          detection_methods = { 'pubspec.yaml' },
+        },
       }
     end,
   },

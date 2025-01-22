@@ -1,0 +1,69 @@
+{
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "theme.bar.menus.menu.dashboard.confirmation_scaling": 100,
+  "wallpaper.pywal": false,
+  "menus.clock.time.military": false,
+  "menus.clock.weather.unit": "imperial",
+  "menus.transition": "crossfade",
+  "theme.font.name": "RobotoMono Nerd Font Propo",
+  "theme.font.style": "italic",
+  "theme.font.label": "RobotoMono Nerd Font Propo Medium Italic",
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.show_numbered": true,
+  "menus.clock.weather.location": "Vidreres, Spain",
+  "menus.dashboard.powermenu.avatar.name": "system",
+  "menus.dashboard.stats.enable_gpu": true,
+  "theme.bar.transparent": false,
+  "theme.bar.buttons.style": "default",
+  "theme.bar.buttons.modules.submap.enableBorder": false,
+  "theme.bar.buttons.modules.cava.enableBorder": false,
+  "bar.customModules.netstat.pollingInterval": 5000,
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "submap",
+        "media",
+      ],
+      "right": [
+        "volume",
+        "network",
+        "bluetooth",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "submap",
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "theme.bar.buttons.modules.cpuTemp.enableBorder": false,
+  "theme.bar.menus.monochrome": false,
+  "theme.bar.menus.opacity": 90,
+  "theme.matugen": true,
+  "wallpaper.image": "/home/arnaud/Wallpapers/wallpaper4.jpg",
+  "theme.matugen_settings.scheme_type": "content",
+  "theme.matugen_settings.variation": "standard_3",
+  "theme.matugen_settings.mode": "dark",
+  "bar.customModules.cava.bars": 10,
+  "bar.customModules.cava.channels": 2,
+  "bar.customModules.cava.stereo": true
+}

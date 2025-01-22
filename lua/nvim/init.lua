@@ -130,6 +130,30 @@ vim.keymap.set('n', '<space>nt', ':tabnew<CR>', { desc = 'Open a new tab' })
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
+--vim.api.nvim_create_autocmd('LspAttach', {
+--  callback = function(args)
+--    local client = vim.lsp.get_client_by_id(args.data.client_id)
+--    if client.name == 'dartls' then
+--      print 'Dart LSP initialized with capabilities:'
+--      print(vim.inspect(client.server_capabilities))
+--
+--      -- Test basic LSP functionality
+--      local function test_lsp_request()
+--        local params = vim.lsp.util.make_position_params()
+--        client.request('textDocument/hover', params, function(err, result, ctx)
+--          if err then
+--            print('LSP Error:', vim.inspect(err))
+--          else
+--            print('LSP Result:', vim.inspect(result))
+--          end
+--        end)
+--      end
+--
+--      -- Run test after a short delay to ensure everything is initialized
+--      vim.defer_fn(test_lsp_request, 1000)
+--    end
+--  end,
+--})
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -900,22 +924,22 @@ require('lazy').setup({
   require 'plugins.completion',
   require 'plugins.flutter',
   require 'plugins.copilot',
-  require('flutter-tools').setup_project {
-    {
-      name = 'Development',
-      flavor = 'development',
-      target = 'lib/main_development.dart',
-      dart_define = {
-        API = '/api/v1',
-        SERVICE_NAME = 'concrete-mobile-app-app',
-        ENVIRONMENT = 'development',
-        CLIENT_ID = 'concrete-client',
-        REDIRECT_URL = 'com.nexplore.bcqd:/oauthorize',
-        SCOPES = 'email_profile_openid',
-        NAMESPACE = 'latest',
-      },
-    },
-  },
+  --  require('flutter-tools').setup_project {
+  --    {
+  --      name = 'Development',
+  --      flavor = 'development',
+  --      target = 'lib/main_development.dart',
+  --      dart_define = {
+  --        API = '/api/v1',
+  --        SERVICE_NAME = 'concrete-mobile-app-app',
+  --        ENVIRONMENT = 'development',
+  --        CLIENT_ID = 'concrete-client',
+  --        REDIRECT_URL = 'com.nexplore.bcqd:/oauthorize',
+  --        SCOPES = 'email_profile_openid',
+  --        NAMESPACE = 'latest',
+  --      },
+  --    },
+  --  },
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
@@ -947,6 +971,5 @@ require('lazy').setup({
     },
   },
 })
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
