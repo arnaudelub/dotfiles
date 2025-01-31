@@ -48,7 +48,7 @@ return {
               analysisLogFile = '/tmp/dart-code.log',
               enableSdkFormatter = true,
               -- Force checking for SDK location
-              sdkPath = vim.fn.expand '/opt/dart-sdk-dev',
+              -- sdkPath = vim.fn.expand '/opt/dart-sdk-dev',
               -- Enable verbose logging
               developerMode = true,
             },
