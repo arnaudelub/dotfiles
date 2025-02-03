@@ -921,9 +921,9 @@ require('lazy').setup({
   require 'plugins.neo-tree',
   require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'plugins.oil',
-  require 'plugins.completion',
+  -- require 'plugins.completion',
   require 'plugins.flutter',
-  require 'plugins.copilot',
+  --require 'plugins.copilot',
   --  require('flutter-tools').setup_project {
   --    {
   --      name = 'Development',

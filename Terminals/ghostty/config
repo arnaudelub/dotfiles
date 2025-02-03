@@ -52,9 +52,9 @@ scrollback-limit = 14294967295
 window-theme = ghostty
 clipboard-read = allow
 clipboard-paste-protection = false
-window-decoration = false
+window-decoration = true
 
 #KEYBIND
 keybind = ctrl+t=new_tab
-keybind = ctrl+s=new_split:auto
+keybind = ctrl+q=new_split:auto
 keybind = ctrl+z=toggle_split_zoom
